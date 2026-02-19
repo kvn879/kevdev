@@ -41,10 +41,21 @@ function MemoryMatch() {
                     const isFlipped = flipped.includes(index) || solved.includes(card.id);
                     return (
                         <div
+                            key={card.id}
+                            onClick={() => handleClick(index)}
+                            className={`w-20 h-20 flex items-center justfiy-center text-3xl cursor-pointer rounded-lg shadow-md transition-all duration-300 ${
+                                isFlipped ? 'bg-white rotate-0' : 'bg-amber-700 rotate-180'
+                            }`}
                         >{isFlipped ? card.symbol : '?'}</div>
                     );
                 })}
             </div>
+            {solved.length === cards.length && (
+                <button onClick={() => {setSolved([]); setFlipped([]);}}
+                className="mt-8 px-6 py-2 bg-amber-900 text-white rounded-full hover:bg:amber-700">
+                    Play Again
+                </button>
+            )}
 
         </div>
     );

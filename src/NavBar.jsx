@@ -10,7 +10,7 @@ function NavBar() {
                 {navLinks.map(link => (
                     <li key={link}>
                         <Link to={link === "Home" ? "/" : `/${link.toLowerCase()}`}
-                            className="text-amber-900 hover:text-amber-600 transition-colors capitalize">
+                            className="text-amber-900 hover:text-amber-300 transition-colors capitalize">
                             {link.replace("_", " ")}
                         </Link>
                     </li>
